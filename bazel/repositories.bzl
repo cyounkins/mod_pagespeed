@@ -13,6 +13,14 @@ load(":aprutil.bzl", "aprutil_build_rule")
 load(":serf.bzl", "serf_build_rule")
 load(":closure_compiler.bzl", "closure_library_rules")
 
+# v1.29.0
+#ENVOY_COMMIT = "a6d1d66a62b985baed414ba90ad0daebfc074664"
+#ENVOY_SHA = "bc2223ef7209a7abb53bc9b3a403ab5ba5c447b78cfb63b0fdb3ed07e1565199"
+
+# v1.30.1
+#ENVOY_COMMIT = "816188b86a0a52095b116b107f576324082c7c02"
+#ENVOY_SHA = "ad65a117723f30224286b2ae60904668d9fdf2350415e7509d5ee371451fba26"
+
 ENVOY_COMMIT = "7fd09ae21dacb0c36324dbbb158cb905c7ac8d9c"
 ENVOY_SHA = "3f8cf2d3eb8a9b5a4defec504a0d199a9e245ec346a777183a9c9498da8ce8af"
 
@@ -38,8 +46,8 @@ GIFLIB_COMMIT = "5.2.1"  # July 24th, 2020
 GIFLIB_SHA = "31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd"
 OPTIPNG_COMMIT = "0.7.7"  # July 24th, 2020
 OPTIPNG_SHA = "4f32f233cef870b3f95d3ad6428bfe4224ef34908f1b42b0badf858216654452"
-LIBJPEG_TURBO_COMMIT = "ab7cd970a83609f98e8542cea8b81e8d92ddab83"  # July 24th, 2020
-LIBJPEG_TURBO_SHA = "3a6b383a957d87b4d60b67e2e1a950c695ee3016e817d04a13af05b9a98c6aea"
+LIBJPEG_TURBO_COMMIT = "9120a247436e84c0b4eea828cb11e8f665fcde30"  # July 24th, 2020
+LIBJPEG_TURBO_SHA = "06895f4c3278157012adb7756d0d6c6c5ad63c3009edd5cc124119493041e9ad"
 APR_COMMIT = "901ece0cd7cec29c050c58451a801bb125d09b6e"  # July 24th, 2020
 APR_SHA = "372b6a3424d8a3abbbf216bf6058e949f7b9da95e9caa57a9f5e82fe7528ca40"
 APRUTIL_COMMIT = "13ed779e56669007dffe9a27ffab3790b59cbfaa"
@@ -154,7 +162,7 @@ def mod_pagespeed_dependencies():
 
     http_archive(
         name = "libjpeg_turbo",
-        url = "https://chromium.googlesource.com/chromium/deps/libjpeg_turbo/+archive/%s.tar.gz" % LIBJPEG_TURBO_COMMIT,
+        url = "https://github.com/libjpeg-turbo/libjpeg-turbo/archive/%s.tar.gz" % LIBJPEG_TURBO_COMMIT,
         build_file_content = libjpeg_turbo_build_rule,
         # TODO(oschaaf): somehow sha's diverage between here and Travis.
         sha256 = LIBJPEG_TURBO_SHA,
